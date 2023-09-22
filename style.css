@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    background-color: black;
+}
+
+.frame {
+    position:fixed;
+    width: 100vmin;
+    height: 120vmin;
+    background: url("./manhattan1.png");
+    background-size: cover;
+    align-items: center;
+      
+}
+
+.core, .orbit, .electron {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 35%;
+    right: 0;
+    margin: auto;
+    border-radius: 50%;
+}
+
+.core{
+    width: 2.5vmin;
+    height: 2.5vmin;
+    background: radial-gradient(circle at 14px 12px, black, black);
+}
+
+.orbit {
+    width: 10vmin;
+    height: 10vmin;
+    border: 3px black solid;
+    transform-style:preserve-3d;
+}
+
+.orbit:nth-child(1){
+    transform:rotateZ(90deg) rotateY(70deg);
+}
+
+.orbit .electron{
+    width:1.5vmin;
+    height: 1.5vmin;
+    background: radial-gradient(circle at 2px 2px, black, black);
+    transform: translateX(20vmin) rotateY(-70deg); 
+    animation: movement linear infinite;
+    animation-duration: var(--duration);
+}
+
+@keyframes movement{
+    from{
+        transform: rotateZ(0) translateX(5vmin) rotateZ(0) rotateY(-70deg);
+
+    }
+    to{
+        transform: rotateZ(360deg) translateX(5vmin) rotateZ(-360deg) rotateY(-70deg);
+
+    }
+}
+
+body{
+    display:flex;
+    justify-items: center;
+    align-items: center;
+    min-height: 100vh;
+}
